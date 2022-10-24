@@ -15,7 +15,7 @@ const Header = () => {
     };
     return (
         <div>
-            <Navbar className='mb-3' bg="dark" expand="lg" variant='dark'>
+            <Navbar className='' bg="dark" expand="lg" variant='dark'>
                 <Container>
                     <Link to='/home' className='text-decoration-none'><Navbar.Brand>Learn With Nahin</Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />

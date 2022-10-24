@@ -1,0 +1,23 @@
+
+.bg-color{
+    background-color:#F9E79F ;
+}
+.heading1{
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 70px;
+    padding-top: 60px;
+    font-family: 'Poppins', sans-serif;
+
+}
+.heading1::after {
+    content: '';
+    width: 85%;
+    height: 3px;
+    background-color: red;
+    display: block;
+    transition: 0.5s;
+    margin: auto;
+    margin-top: 4px;
+}
