@@ -1,12 +1,12 @@
 
-.bg-color{
-    background-color:#F9E79F ;
+.bg{
+    background-color: #F6F2DB;
 }
 .heading1{
     display: inline-block;
     text-transform: uppercase;
     font-weight: 500;
-    font-size: 70px;
+    font-size: 50px;
     padding-top: 60px;
     font-family: 'Poppins', sans-serif;
 
@@ -21,3 +21,20 @@
     margin: auto;
     margin-top: 4px;
 }
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+@media screen and (max-width: 480px) {
+   img{
+        max-width: 100%;
+        height: auto;
+    }
+  }
+@media screen and (max-width: 980px) {
+    .hero{
+        flex-direction: column-reverse;
+    }
+  }

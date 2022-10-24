@@ -1,6 +1,7 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Image, Nav, Navbar } from 'react-bootstrap';
 import { Link, NavLink } from 'react-router-dom';
+import logo from '../../Assets/logo.png';
 
 const Header = () => {
     let activeStyle = {
@@ -17,7 +18,8 @@ const Header = () => {
         <div>
             <Navbar className='' bg="dark" expand="lg" variant='dark'>
                 <Container>
-                    <Link to='/home' className='text-decoration-none'><Navbar.Brand>Learn With Nahin</Navbar.Brand></Link>
+                    <Image src={logo} style={{height: '50px'}}></Image>
+                    <Link to='/home' className='text-decoration-none text-uppercase'><Navbar.Brand>Learn With <span style={{color:'orangered'}} className='fw-semibold pe-lg-5'>nahin</span></Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         <Nav className=" me-auto">
