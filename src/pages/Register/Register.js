@@ -7,20 +7,20 @@ const Register = () => {
     return (
         <div className='d-flex justify-content-evenly align-items-center flex-column flex-lg-row'>
             <div className=' p-5 m-5  border-3 form'>
-            <h3 className='text-center  fw-semibold'>Please Register</h3>
+                <h3 className='text-center  fw-semibold'>Please Register</h3>
                 <Form>
-                <Form.Group className="mb-3" controlId="formBasicName">
+                    <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Full Name</Form.Label>
-                        <Form.Control type="text" placeholder="Enter Name" name='name'/>
+                        <Form.Control type="text" placeholder="Enter Name" name='name' />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicUrl">
                         <Form.Label>Photo URL</Form.Label>
-                        <Form.Control type="text" placeholder="Photo URL" name='url'/>
+                        <Form.Control type="text" placeholder="Photo URL" name='url' />
                     </Form.Group>
-                    
+
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" name='email'/>
+                        <Form.Control type="email" placeholder="Enter email" name='email' />
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -28,14 +28,14 @@ const Register = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" name='password'/>
+                        <Form.Control type="password" placeholder="Password" name='password' />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Re-enter Password</Form.Label>
-                        <Form.Control type="password" placeholder="Re-enter Password" name='re-enter'/>
+                        <Form.Control type="password" placeholder="Re-enter Password" name='re-enter' />
                     </Form.Group>
                     <p>Already have account! <Link className='text-decoration-none fw-semibold' to='/login'> Go to Login</Link></p>
-                    
+
                     <Button variant="dark" type="submit" className='w-100'>
                         Register
                     </Button>
