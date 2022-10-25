@@ -15,7 +15,7 @@ const Header = () => {
         fontWeight: "400",
     };
     return (
-        <div>
+        <div className='sticky-top'>
             <Navbar className='' bg="dark" expand="lg" variant='dark'>
                 <Container>
                     <Image src={logo} style={{height: '50px'}}></Image>

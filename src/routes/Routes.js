@@ -8,6 +8,8 @@ import FAQ from "../pages/FAQ/FAQ";
 import Home from "../pages/Home/Home";
 import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
+import Categories from "../pages/Categories/Categories";
+import Course from "../pages/Course/Course";
 
 export const router = createBrowserRouter([
     {
@@ -20,7 +22,19 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses',
-                element: <Courses></Courses>
+                element: <Courses></Courses>,
+                children: [
+                    {
+                        path: '/courses/category/:id',
+                        element: <Categories></Categories>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                    },
+                    {
+                        path: '/courses/course/:id',
+                        element: <Course></Course>,
+                        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+                    },
+                ]
             },
             {
                 path: '/blogs',

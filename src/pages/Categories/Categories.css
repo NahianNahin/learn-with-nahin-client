@@ -1,0 +1,10 @@
+.course-container{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 3rem;
+}
+@media screen and (max-width: 680px) {
+    .course-container{
+        grid-template-columns: repeat(1,1fr);
+    }
+  }
