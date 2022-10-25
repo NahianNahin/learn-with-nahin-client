@@ -5,14 +5,14 @@ import './course.css';
 
 const Course = () => {
     const course = useLoaderData();
-    const { _id, details, image_url, price, title, total_enroll, instructor, rating } = course;
+    const { details, image_url, price, title, total_enroll, instructor, rating } = course;
     return (
         <div>
             <h3 className='text-center fw-semibold mt-5'>Details About Course</h3>
             <div className='p-5'>
                 <h4 className='p-2 fw-bold'>{title}</h4>
                 <Card>
-                    <Card.Img variant="top" src={image_url}  className='image' />
+                    <Card.Img variant="top" src={image_url} className='image' />
                     <Card.Body>
                         <div className='d-flex gap-3 '>
                             <div>
