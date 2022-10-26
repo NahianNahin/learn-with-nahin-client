@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaBlog } from 'react-icons/fa';
 import { useLoaderData } from 'react-router-dom';
 import Blog from '../../shared/Blog/Blog';
 import './Blogs.css';

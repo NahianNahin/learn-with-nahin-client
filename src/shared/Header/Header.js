@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaMoon, FaQuestionCircle, FaRegMoon, FaSignInAlt, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
+import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaMoon, FaQuestionCircle, FaRegMoon, FaRegSun, FaSignInAlt, FaSignOutAlt, FaSun, FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -9,10 +9,19 @@ import './Header.css';
 const Header = () => {
     // AuthProvider
     const { logout, user } = useContext(AuthContext);
+    // Toogle Dark Mode
+    const [active, setActive] = useState(false);
+    const handleToogleTrue = () => {
+        setActive(true);
+    }
+    const handleToogleFalse = () => {
+        setActive(false);
+    }
     let activeStyle = {
         textDecoration: "underline",
         color: "#ffc107",
         fontWeight: "700",
+        fontSize: '20px'
     };
     let inActiveStyle = {
         textDecoration: "none",
@@ -74,7 +83,7 @@ const Header = () => {
                                             </abbr>
                                             :
                                             <abbr title={user?.displayName}>
-                                                <FaUserCircle className='text-warning'></FaUserCircle>
+                                                <FaUserCircle className='text-warning fs-2'></FaUserCircle>
                                             </abbr>
                                     }
                                     <Navbar.Text className='text-light displayemail'>
@@ -93,8 +102,18 @@ const Header = () => {
 
                                 </>
                         }
-                        <FaRegMoon className='text-warning'></FaRegMoon>
-                        <FaMoon className='text-warning'></FaMoon>
+                        {/* Toggle Dark & Light Mode  */}
+                        {
+                            active
+                                ?
+                                <button onClick={handleToogleFalse} className='btn'><FaMoon className='text-danger fs-4'></FaMoon></button>
+                                :
+                                <button onClick={handleToogleTrue} className='btn'><FaSun className='text-warning fs-4'></FaSun></button>
+                        }
+
+
+
+
                     </Navbar.Collapse>
 
                 </Container>

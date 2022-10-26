@@ -1,16 +1,32 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import './Login.css';
 
 const Login = () => {
     // AuthProvider
-    const { googlelogIn, githublogIn } = useContext(AuthContext);
+    const { googlelogIn, githublogIn, login } = useContext(AuthContext);
+    const navigate = useNavigate();
     // Handle For Submit Login Form 
     const handleSubmit = event => {
-        
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        login(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                form.reset();
+                navigate('/home');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
 
     }
     // Handle For Submit Google Login  
@@ -46,7 +62,7 @@ const Login = () => {
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control type="email" placeholder="Enter email" name='email'/>
                         <Form.Text className="text-muted">
                             We'll never share your email with anyone else.
                         </Form.Text>
@@ -54,7 +70,7 @@ const Login = () => {
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control type="password" placeholder="Password" name='password'/>
                     </Form.Group>
                     <p>Don't have any account! <Link className='text-decoration-none fw-semibold' to='/register'> Register Now</Link></p>
 

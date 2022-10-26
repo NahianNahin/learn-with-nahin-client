@@ -1,13 +1,14 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const Register = () => {
     // AuthProvider
-    const { googlelogIn, githublogIn } = useContext(AuthContext);
+    const { googlelogIn, githublogIn, createUser } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     // Handle For Submit Register Form 
     const handleSubmit = event => {
@@ -21,6 +22,18 @@ const Register = () => {
         if (password !== reEnterPassword) {
             return;
         };
+        createUser(email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+                console.log(user);
+                form.reset();
+                navigate('/');
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+            });
 
     }
     // Handle For Submit Google Login  
