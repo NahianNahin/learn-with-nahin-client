@@ -74,7 +74,7 @@ const Header = () => {
                                     {
                                         user?.photoURL
                                             ?
-                                            <abbr title={user?.displayName}>
+                                            <abbr title={user?.displayName} className='p-2 f-4'>
                                                 <Image
                                                     src={user?.photoURL}
                                                     style={{ height: '40px' }}

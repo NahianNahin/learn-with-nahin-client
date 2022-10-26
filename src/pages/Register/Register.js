@@ -7,7 +7,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     // AuthProvider
-    const { googlelogIn, githublogIn, createUser } = useContext(AuthContext);
+    const { googlelogIn, githublogIn, createUser, updateUserProfile, emailVerification } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // Handle For Submit Register Form 
@@ -27,7 +27,9 @@ const Register = () => {
                 const user = userCredential.user;
                 console.log(user);
                 form.reset();
-                navigate('/');
+                navigate('/home');
+                handleUpdateUserProfile(name, photoUrl);
+                handleVerifyEmail();
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -62,6 +64,31 @@ const Register = () => {
 
             });
     }
+    // Handle Update Proflie
+
+    const handleUpdateUserProfile = (name, photoUrl) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoUrl,
+        };
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => {
+                console.log(error);
+            });
+    };
+    // Handle Verify Email
+
+    const handleVerifyEmail = () => {
+        emailVerification()
+            .then(() => {
+                alert('Please Verify your email address.');
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     return (
         <div className='d-flex justify-content-evenly align-items-center flex-column flex-lg-row'>
             <div className=' p-5 m-5  border-3 form'>
