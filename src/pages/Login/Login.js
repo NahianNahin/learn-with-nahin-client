@@ -1,27 +1,48 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
 import './Login.css';
 
 const Login = () => {
+    // AuthProvider
+    const { googlelogIn, githublogIn } = useContext(AuthContext);
     // Handle For Submit Login Form 
     const handleSubmit = event => {
 
     }
     // Handle For Submit Google Login  
     const handleGoogleLogin = () => {
-        
+        googlelogIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+
+            });
     }
     // Handle For Submit Github Login  
     const handleGithubLogin = () => {
+        githublogIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
 
+            });
     }
     return (
         <div className='d-flex justify-content-evenly align-items-center flex-column flex-lg-row'>
             <div className=' p-5 m-5  border-3 form'>
-            <h3 className='text-center mb-2 fw-semibold'>Please Login</h3>
-                <Form onSubmit={handleSubmit}>                  
+                <h3 className='text-center mb-2 fw-semibold'>Please Login</h3>
+                <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
@@ -35,7 +56,7 @@ const Login = () => {
                         <Form.Control type="password" placeholder="Password" />
                     </Form.Group>
                     <p>Don't have any account! <Link className='text-decoration-none fw-semibold' to='/register'> Register Now</Link></p>
-                    
+
                     <Button variant="dark" type="submit" className='w-100'>
                         Login
                     </Button>

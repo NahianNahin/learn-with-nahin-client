@@ -1,22 +1,44 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthProvider';
+
 
 const Register = () => {
-    
-        // Handle For Submit Register Form 
-        const handleSubmit = event => {
-    
-        }
-        // Handle For Submit Google Login  
-        const handleGoogleLogin = () => {
-            
-        }
-        // Handle For Submit Github Login  
-        const handleGithubLogin = () => {
-    
-        }
+    // AuthProvider
+    const { googlelogIn, githublogIn } = useContext(AuthContext);
+
+    // Handle For Submit Register Form 
+    const handleSubmit = event => {
+
+    }
+    // Handle For Submit Google Login  
+    const handleGoogleLogin = () => {
+        googlelogIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+
+            });
+    }
+    // Handle For Submit Github Login  
+    const handleGithubLogin = () => {
+        githublogIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+
+            });
+    }
     return (
         <div className='d-flex justify-content-evenly align-items-center flex-column flex-lg-row'>
             <div className=' p-5 m-5  border-3 form'>
