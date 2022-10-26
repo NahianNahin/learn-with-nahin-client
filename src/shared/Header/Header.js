@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaMoon, FaQuestionCircle, FaRegMoon, FaRegSun, FaSignInAlt, FaSignOutAlt, FaSun, FaUserCircle } from 'react-icons/fa';
+import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaMoon, FaQuestionCircle, FaSignInAlt, FaSignOutAlt, FaSun, FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -33,7 +33,7 @@ const Header = () => {
             <Navbar className='' bg="dark" expand="lg" variant='dark'>
                 <Container>
                     <Image src={logo} style={{ height: '50px' }}></Image>
-                    <Link to='/home' className='text-decoration-none text-uppercase'><Navbar.Brand>Learn With <span style={{ color: 'orangered' }} className='fw-semibold pe-lg-5'>nahin</span></Navbar.Brand></Link>
+                    <Link to='/' className='text-decoration-none text-uppercase'><Navbar.Brand>Learn With <span style={{ color: 'orangered' }} className='fw-semibold pe-lg-5'>nahin</span></Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
                         {/* All Nav link  */}

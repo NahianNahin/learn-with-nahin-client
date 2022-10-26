@@ -11,12 +11,17 @@ import Register from "../pages/Register/Register";
 import Categories from "../pages/Categories/Categories";
 import Course from "../pages/Course/Course";
 import PrivateRoutes from "./PrivateRoutes";
+import GetStarted from "../pages/GetStarted/GetStarted";
 
 export const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
         children: [
+            {
+                path: '/',
+                element: <GetStarted></GetStarted>
+            },
             {
                 path: '/home',
                 element: <Home></Home>
@@ -30,12 +35,13 @@ export const router = createBrowserRouter([
                         element: <Categories></Categories>,
                         loader: ({ params }) => fetch(`https://my-assignment-ten-server.vercel.app/category/${params.id}`)
                     },
-                    {
-                        path: '/courses/course/:id',
-                        element: <PrivateRoutes><Course></Course></PrivateRoutes>,
-                        loader: ({ params }) => fetch(`https://my-assignment-ten-server.vercel.app/courses/${params.id}`)
-                    },
+                    
                 ]
+            },
+            {
+                path: '/courses/course/:id',
+                element: <PrivateRoutes><Course></Course></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://my-assignment-ten-server.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/blogs',

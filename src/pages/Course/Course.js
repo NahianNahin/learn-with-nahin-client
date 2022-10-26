@@ -7,8 +7,8 @@ const Course = () => {
     const course = useLoaderData();
     const { details, image_url, price, title, total_enroll, instructor, rating } = course;
     return (
-        <div>
-            <h3 className='text-center fw-semibold mt-5'>Details About Course</h3>
+        <div className='course-details'>
+            <h1 className='text-center fw-semibold mt-5'>Checkout Our Course</h1>
             <div className='p-5'>
                 <h4 className='p-2 fw-bold'>{title}</h4>
                 <Card>
