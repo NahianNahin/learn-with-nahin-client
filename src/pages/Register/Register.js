@@ -11,6 +11,16 @@ const Register = () => {
 
     // Handle For Submit Register Form 
     const handleSubmit = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const name = form.name.value;
+        const photoUrl = form.url.value;
+        const password = form.password.value;
+        const reEnterPassword = form.reEnter.value;
+        if (password !== reEnterPassword) {
+            return;
+        };
 
     }
     // Handle For Submit Google Login  
@@ -67,7 +77,7 @@ const Register = () => {
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Re-enter Password</Form.Label>
-                        <Form.Control type="password" placeholder="Re-enter Password" name='re-enter' />
+                        <Form.Control type="password" placeholder="Re-enter Password" name='reEnter' />
                     </Form.Group>
                     <p>Already have account! <Link className='text-decoration-none fw-semibold' to='/login'> Go to Login</Link></p>
 

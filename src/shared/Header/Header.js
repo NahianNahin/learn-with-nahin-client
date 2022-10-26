@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Container, Image, Nav, Navbar } from 'react-bootstrap';
-import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaQuestionCircle, FaSignInAlt } from 'react-icons/fa';
+import { FaAddressCard, FaBlog, FaBookReader, FaHome, FaMoon, FaQuestionCircle, FaRegMoon, FaSignInAlt, FaSignOutAlt, FaUserCircle } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../Assets/logo.png';
+import { AuthContext } from '../../contexts/AuthProvider';
+import './Header.css';
 
 const Header = () => {
+    // AuthProvider
+    const { logout, user } = useContext(AuthContext);
     let activeStyle = {
         textDecoration: "underline",
         color: "#ffc107",
@@ -23,6 +27,7 @@ const Header = () => {
                     <Link to='/home' className='text-decoration-none text-uppercase'><Navbar.Brand>Learn With <span style={{ color: 'orangered' }} className='fw-semibold pe-lg-5'>nahin</span></Navbar.Brand></Link>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
+                        {/* All Nav link  */}
                         <Nav className=" me-auto">
                             <Nav.Link><NavLink
                                 to='/home'
@@ -49,15 +54,47 @@ const Header = () => {
                                 style={({ isActive }) =>
                                     isActive ? activeStyle : inActiveStyle
                                 }><FaAddressCard className='mx-3'></FaAddressCard></NavLink></Nav.Link>
-                            <Nav.Link><NavLink
-                                to='/login'
-                                style={({ isActive }) =>
-                                    isActive ? activeStyle : inActiveStyle
-                                }> <FaSignInAlt className='mx-3'></FaSignInAlt></NavLink></Nav.Link>
+
                         </Nav>
                     </Navbar.Collapse>
                     <Navbar.Collapse className="justify-content-end align-item-center gap-3">
-                        <p className='text-warning mt-3'>Dark || Light</p>
+                        {
+                            // displaying Image & Name 
+                            user?.uid ?
+                                <>
+                                    {
+                                        user?.photoURL
+                                            ?
+                                            <abbr title={user?.displayName}>
+                                                <Image
+                                                    src={user?.photoURL}
+                                                    style={{ height: '40px' }}
+                                                    roundedCircle>
+                                                </Image>
+                                            </abbr>
+                                            :
+                                            <abbr title={user?.displayName}>
+                                                <FaUserCircle className='text-warning'></FaUserCircle>
+                                            </abbr>
+                                    }
+                                    <Navbar.Text className='text-light displayemail'>
+                                        {user?.email}
+                                    </Navbar.Text>
+                                    <button onClick={logout} className='btn text-light'><FaSignOutAlt className='signout'></FaSignOutAlt></button>
+                                </>
+
+                                :
+                                <>
+                                    <Nav.Link><NavLink
+                                        to='/login'
+                                        style={({ isActive }) =>
+                                            isActive ? activeStyle : inActiveStyle
+                                        }> <FaSignInAlt className='mx-3'></FaSignInAlt></NavLink></Nav.Link>
+
+                                </>
+                        }
+                        <FaRegMoon className='text-warning'></FaRegMoon>
+                        <FaMoon className='text-warning'></FaMoon>
                     </Navbar.Collapse>
 
                 </Container>

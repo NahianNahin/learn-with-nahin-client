@@ -1,0 +1,11 @@
+.signout:hover{
+    color: #ffc107;
+}
+
+
+
+@media screen and (max-width: 1000px) {
+    .displayemail{
+        margin-left: 20px;
+    }
+  }
