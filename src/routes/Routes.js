@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
-import Blog from "../pages/Blog/Blog";
+import Blogs from "../pages/Blogs/Blogs";
 import Contact from "../pages/Contact/Contact";
 import Courses from "../pages/Courses/Courses";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
@@ -38,7 +38,8 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/blogs',
-                element: <Blog></Blog>
+                element: <Blogs></Blogs>,
+                loader: () => fetch('http://localhost:5000/blogs'),
             },
             {
                 path: '/login',

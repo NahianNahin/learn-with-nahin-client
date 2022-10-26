@@ -5,12 +5,23 @@ import { Link } from 'react-router-dom';
 import './Login.css';
 
 const Login = () => {
+    // Handle For Submit Login Form 
+    const handleSubmit = event => {
+
+    }
+    // Handle For Submit Google Login  
+    const handleGoogleLogin = () => {
+        
+    }
+    // Handle For Submit Github Login  
+    const handleGithubLogin = () => {
+
+    }
     return (
         <div className='d-flex justify-content-evenly align-items-center flex-column flex-lg-row'>
             <div className=' p-5 m-5  border-3 form'>
             <h3 className='text-center mb-2 fw-semibold'>Please Login</h3>
-                <Form>
-                    
+                <Form onSubmit={handleSubmit}>                  
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" />
@@ -34,8 +45,8 @@ const Login = () => {
                 <p className='fs-2'>OR</p>
             </div>
             <div className=' p-5 mx-3 w-75 d-flex gap-3 flex-column'>
-                <button className='btn btn-outline-success'><FaGoogle className='me-2'></FaGoogle> Login With Google</button>
-                <button className='btn btn-outline-dark'><FaGithub className='me-3'></FaGithub>Login With Github</button>
+                <button onClick={handleGoogleLogin} className='btn btn-outline-success'><FaGoogle className='me-2'></FaGoogle> Login With Google</button>
+                <button onClick={handleGithubLogin} className='btn btn-outline-dark'><FaGithub className='me-3'></FaGithub>Login With Github</button>
             </div>
         </div>
     );

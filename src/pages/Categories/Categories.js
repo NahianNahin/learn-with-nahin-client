@@ -8,7 +8,7 @@ const Categories = () => {
     console.log(courses);
     return (
         <div>
-            <h2 className='text-center mt-5 fw-semibold'>Courses: {courses.length}</h2>
+            <h2 className='text-center mt-5 fw-semibold'>Total Courses: {courses.length}</h2>
             <div className='course-container p-5'>
                 {
                     courses.map(course => <CourseSummary key={course._id} course={course}></CourseSummary>)
