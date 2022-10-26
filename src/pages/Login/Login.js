@@ -1,14 +1,20 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 import './Login.css';
 
 const Login = () => {
     // AuthProvider
     const { googlelogIn, githublogIn, login } = useContext(AuthContext);
+    // For Re-direct Path
     const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/home';
+    
     // Handle For Submit Login Form 
     const handleSubmit = event => {
         event.preventDefault();
@@ -20,7 +26,12 @@ const Login = () => {
                 const user = userCredential.user;
                 console.log(user);
                 form.reset();
-                navigate('/home');
+                if(user.emailVerified){
+                    navigate(from, {replace : true});
+                }
+                else{
+                    toast.error('Your email is not verified. Please verify your email.');
+                }
             })
             .catch((error) => {
                 const errorCode = error.code;
