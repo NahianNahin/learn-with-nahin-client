@@ -87,8 +87,11 @@ const Header = () => {
                                             </abbr>
                                     }
                                     <Navbar.Text className='text-light displayemail'>
-                                        {user?.email}
-                                    </Navbar.Text>
+                                        {
+                                            user?.email ? <p className='m-0 d-inline-block'>{user?.email}</p> : <p className='m-0 d-inline-block'>{user?.displayName}</p>
+                                        }
+                                    </Navbar.Text> 
+                                    
                                     <button onClick={logout} className='btn text-light'><FaSignOutAlt className='signout'></FaSignOutAlt></button>
                                 </>
 
