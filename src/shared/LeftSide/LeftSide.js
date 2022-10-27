@@ -5,7 +5,7 @@ import './LeftSide.css';
 const LeftSide = () => {
     const [categories, setCategories] = useState([]);
     useEffect(() => {
-        fetch('https://my-assignment-ten-server.vercel.app/courses-categories')
+        fetch('https://my-assignment-ten-server-nahiannahin.vercel.app/courses-categories')
             .then(res => res.json())
             .then(data => setCategories(data));
     }, []);

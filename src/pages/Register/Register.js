@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 
 const Register = () => {
     // AuthProvider
-    const { googlelogIn, githublogIn, createUser, updateUserProfile, emailVerification } = useContext(AuthContext);
+    const { googlelogIn, githublogIn, createUser, updateUserProfile, emailVerification,facebooklogIn } = useContext(AuthContext);
     const navigate = useNavigate();
 
     // Handle For Submit Register Form 
@@ -54,6 +54,19 @@ const Register = () => {
     // Handle For Submit Github Login  
     const handleGithubLogin = () => {
         githublogIn()
+            .then((result) => {
+                const user = result.user;
+                console.log(user);
+            }).catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+
+            });
+    }
+    // Handle For Submit Facebook Login  
+    const handleFacebookLogin = () => {
+        facebooklogIn()
             .then((result) => {
                 const user = result.user;
                 console.log(user);
@@ -130,6 +143,7 @@ const Register = () => {
                 <p className='fs-2'>OR</p>
             </div>
             <div className=' p-5 mx-3 w-75 d-flex gap-3 flex-column'>
+                <button onClick={handleFacebookLogin} className='btn btn-outline-primary'><FaFacebook className='me-2'></FaFacebook> Login With Facebook</button>
                 <button onClick={handleGoogleLogin} className='btn btn-outline-success'><FaGoogle className='me-2'></FaGoogle> Login With Google</button>
                 <button onClick={handleGithubLogin} className='btn btn-outline-dark'><FaGithub className='me-3'></FaGithub>Login With Github</button>
             </div>

@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Getting Started with My React Router Dom & Auth Firebase Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this project I use varaity of thing.The project is about Education Based.
 
-## Available Scripts
+In the project I showed 14 Courses in the UI. I used React in my project. Also I used React Route, React Auth & Firebase. I used React Hot Toast to show some important information.I used React Icon to show some icon.There are two another section - FAQ & Blog section. I also used React-to-pdf to make a pdf of our course details. At last i have done private route set up for the checkout pages & I added 404 Not Found page.
 
-In the project directory, you can run:
+## Project Website Name : LEARN WITH NAHIN
 
-### `npm start`
+Those features I used are in below:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. React
+2. React Router Dom
+3. React Icon
+4. React Bootstrap
+5. Rechart JS
+6. React Hot Toast
+7. React-to-pdf
+8. React Auth -- Firebase
+9. Express Js
+10. Versel Deploy
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Live Site Link
 
-### `npm test`
+The site is deploy in Firebase Hosting:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Live Link`
 
-### `npm run build`
+Open [https://learn-with-nahin.web.app/](https://learn-with-nahin.web.app/) to view it in your browser.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Client Side Source  Link
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The site is deploy in GitHub :
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### `Client Side Private Source Link`
 
-### `npm run eject`
+Open [https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-NahianNahin](https://github.com/programming-hero-web-course1/b610-learning-platform-client-side-NahianNahin) to view it in your Github.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Server Side Source  Link
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The site is deploy in GitHub :
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### `Server Side Private Source Link`
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Open [https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-NahianNahin](https://github.com/programming-hero-web-course1/b610-lerning-platform-server-side-NahianNahin) to view it in your Github.

@@ -24,7 +24,7 @@ const CourseSummary = ({ course }) => {
                     <p><span className='fw-semibold'>Price:</span> {price} Tk</p>
                     <p><span className='fw-semibold'>Enrolled :</span> {total_enroll} Students</p>
                     </div>
-                    <button className='btn btn-dark w-100 btn-sm'>Add To Cart</button>
+                    <Link to={`/courses/course/${_id}`}><button className='btn btn-dark w-100 btn-sm'>Course Details</button></Link>
                 </Card.Body>
             </Card>
         </div>

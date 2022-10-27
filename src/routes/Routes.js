@@ -12,6 +12,8 @@ import Categories from "../pages/Categories/Categories";
 import Course from "../pages/Course/Course";
 import PrivateRoutes from "./PrivateRoutes";
 import GetStarted from "../pages/GetStarted/GetStarted";
+import PopularCourses from "../pages/PopularCourses/PopularCourses";
+import Checkout from "../pages/Checkout/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -31,22 +33,27 @@ export const router = createBrowserRouter([
                 element: <Courses></Courses>,
                 children: [
                     {
+                        path: '/courses',
+                        element: <PopularCourses></PopularCourses>,
+                        loader: () => fetch(`https://my-assignment-ten-server-nahiannahin.vercel.app/courses`)
+                    },
+                    {
                         path: '/courses/category/:id',
                         element: <Categories></Categories>,
-                        loader: ({ params }) => fetch(`https://my-assignment-ten-server.vercel.app/category/${params.id}`)
+                        loader: ({ params }) => fetch(`https://my-assignment-ten-server-nahiannahin.vercel.app/category/${params.id}`)
                     },
                     
                 ]
             },
             {
                 path: '/courses/course/:id',
-                element: <PrivateRoutes><Course></Course></PrivateRoutes>,
-                loader: ({ params }) => fetch(`https://my-assignment-ten-server.vercel.app/courses/${params.id}`)
+                element: <Course></Course>,
+                loader: ({ params }) => fetch(`https://my-assignment-ten-server-nahiannahin.vercel.app/courses/${params.id}`)
             },
             {
                 path: '/blogs',
                 element: <Blogs></Blogs>,
-                loader: () => fetch('https://my-assignment-ten-server.vercel.app/blogs'),
+                loader: () => fetch('https://my-assignment-ten-server-nahiannahin.vercel.app/blogs'),
             },
             {
                 path: '/login',
@@ -58,11 +65,15 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element: <PrivateRoutes><FAQ></FAQ></PrivateRoutes>
+                element: <FAQ></FAQ>
             },
             {
                 path: '/contact',
                 element: <Contact></Contact>
+            },
+            {
+                path: '/checkout',
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
             },
         ]
     },
