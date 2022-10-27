@@ -1,6 +1,7 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, FacebookAuthProvider, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebase.init';
+import toast from 'react-hot-toast';
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const AuthProvider = ({ children }) => {
@@ -50,6 +51,7 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         signOut(auth).then(() => {
             console.log('Sign-out successful.');
+            toast.success("Log-out successful.")
         }).catch((error) => {
             console.log(error);
         });
@@ -75,6 +77,7 @@ const AuthProvider = ({ children }) => {
         user,
         setUser,
         loading,
+        setLoading,
         googlelogIn,
         githublogIn,
         facebooklogIn,

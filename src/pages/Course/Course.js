@@ -9,7 +9,7 @@ import './course.css';
 const Course = () => {
     const ref = createRef();
     const course = useLoaderData();
-    const { details, image_url, price, title, total_enroll, instructor, rating, courses_content, services } = course;
+    const { _id, details, image_url, price, title, total_enroll, instructor, rating, courses_content, services } = course;
 
     return (
         <div className='course-details'>
@@ -79,7 +79,7 @@ const Course = () => {
                         </Card.Body>
                     </div>
                     <Card.Body className='m-0'>
-                        <Link to='/checkout'><button className='btn btn-dark w-100 btn-sm'>Get Premium Access</button></Link>
+                        <Link to={`/checkout/${_id}`}><button className='btn btn-dark w-100 btn-sm'>Get Premium Access</button></Link>
                     </Card.Body>
                 </Card>
             </div>

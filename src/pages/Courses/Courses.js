@@ -6,19 +6,19 @@ import LeftSide from '../../shared/LeftSide/LeftSide';
 
 
 const Courses = () => {
-    
+
     return (
         <div className=''>
             <Container fluid>
-      <Row className=''>
-        <Col lg='4'>
-            <LeftSide></LeftSide>
-        </Col>
-        <Col lg='8'>
-            <Outlet></Outlet>
-        </Col>
-      </Row>
-    </Container>
+                <Row className=''>
+                    <Col lg='4'>
+                        <LeftSide></LeftSide>
+                    </Col>
+                    <Col lg='8'>
+                        <Outlet></Outlet>
+                    </Col>
+                </Row>
+            </Container>
         </div>
     );
 };

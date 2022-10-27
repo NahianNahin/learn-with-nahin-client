@@ -8,7 +8,7 @@ import './Login.css';
 
 const Login = () => {
     // AuthProvider
-    const { googlelogIn, githublogIn, login, facebooklogIn } = useContext(AuthContext);
+    const { googlelogIn, githublogIn, login, facebooklogIn, setLoading } = useContext(AuthContext);
     // For Re-direct Path
     const navigate = useNavigate();
     const location = useLocation();
@@ -32,12 +32,16 @@ const Login = () => {
                 else {
                     toast.error('Your email is not verified. Please verify your email.');
                 }
+                toast.success('Successfully login');
             })
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
-            });
+            })
+            .finally(() => {
+                setLoading(false);
+            })
 
     }
     // Handle For Submit Google Login  
@@ -46,9 +50,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                toast.error(errorMessage);
                 console.log(errorCode, errorMessage);
 
             });
@@ -59,9 +66,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                toast.error(errorMessage);
                 console.log(errorCode, errorMessage);
 
             });
@@ -72,9 +82,12 @@ const Login = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate(from, { replace: true });
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                toast.error(errorMessage);
                 console.log(errorCode, errorMessage);
 
             });
@@ -107,7 +120,7 @@ const Login = () => {
                 <p className='fs-2'>OR</p>
             </div>
             <div className=' p-5 mx-3 w-75 d-flex gap-3 flex-column'>
-            <button onClick={handleFacebookLogin} className='btn btn-outline-primary'><FaFacebook className='me-1'></FaFacebook> Login With Facebook</button>
+                <button onClick={handleFacebookLogin} className='btn btn-outline-primary'><FaFacebook className='me-1'></FaFacebook> Login With Facebook</button>
                 <button onClick={handleGoogleLogin} className='btn btn-outline-success'><FaGoogle className='me-2'></FaGoogle> Login With Google</button>
                 <button onClick={handleGithubLogin} className='btn btn-outline-dark'><FaGithub className='me-3'></FaGithub>Login With Github</button>
             </div>

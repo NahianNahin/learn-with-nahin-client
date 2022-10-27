@@ -65,15 +65,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/faq',
-                element: <FAQ></FAQ>
+                element: <FAQ></FAQ>,
+                loader: () => fetch('https://my-assignment-ten-server-nahiannahin.vercel.app/faq')
             },
             {
                 path: '/contact',
                 element: <Contact></Contact>
             },
             {
-                path: '/checkout',
-                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>
+                path: '/checkout/:id',
+                element: <PrivateRoutes><Checkout></Checkout></PrivateRoutes>,
+                loader: ({ params }) => fetch(`https://my-assignment-ten-server-nahiannahin.vercel.app/courses/${params.id}`)
             },
         ]
     },

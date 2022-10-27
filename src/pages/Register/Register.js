@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import toast from 'react-hot-toast';
 import { FaFacebook, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
@@ -20,6 +21,7 @@ const Register = () => {
         const password = form.password.value;
         const reEnterPassword = form.reEnter.value;
         if (password !== reEnterPassword) {
+            toast.error('Password does not match');
             return;
         };
         createUser(email, password)
@@ -35,6 +37,7 @@ const Register = () => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                toast.error(errorMessage);
             });
 
     }
@@ -44,10 +47,13 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate('/home');
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                toast.error(errorMessage);
 
             });
     }
@@ -57,10 +63,13 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate('/home');
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                toast.error(errorMessage);
 
             });
     }
@@ -70,10 +79,14 @@ const Register = () => {
             .then((result) => {
                 const user = result.user;
                 console.log(user);
+                navigate('/home');
+                toast.success('Successfully login');
             }).catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 console.log(errorCode, errorMessage);
+                toast.error(errorMessage);
+                
 
             });
     }
@@ -95,7 +108,7 @@ const Register = () => {
     const handleVerifyEmail = () => {
         emailVerification()
             .then(() => {
-                alert('Please Verify your email address.');
+                toast.success('Please Verify your email address.');
             })
             .catch(error => {
                 console.log(error);
